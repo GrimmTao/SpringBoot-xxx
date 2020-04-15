@@ -17,16 +17,10 @@ import com.hirain.redis.demo.redistemplate.javabean.User;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Version 1.0
- * @Author zepei.tao@hirain.com
+ * @Author Alex
  * @Created Dec 2020/3/23 15:34
  * @Description
  *              <p>
- * @Modification
- *               <p>
- *               Date Author Version Description
- *               <p>
- *               2020/3/23 zepei.tao@hirain.com 1.0 create file
  */
 @Service
 @CacheConfig(cacheNames = "usercache")

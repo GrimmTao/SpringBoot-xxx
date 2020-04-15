@@ -6,16 +6,10 @@ package com.alex.demo.log4j2.javabean;
 import lombok.Data;
 
 /**
- * @Version 1.0
- * @Author zepei.tao@hirain.com
+ * @Author Alex
  * @Created Dec 2020/3/27 16:01
  * @Description
  *              <p>
- * @Modification
- *               <p>
- *               Date Author Version Description
- *               <p>
- *               2020/3/27 zepei.tao@hirain.com 1.0 create file
  */
 @Data
 public class User extends BaseEntity {

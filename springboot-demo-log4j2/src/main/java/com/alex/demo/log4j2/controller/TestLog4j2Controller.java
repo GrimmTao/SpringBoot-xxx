@@ -12,16 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alex.demo.log4j2.javabean.User;
 
 /**
- * @Version 1.0
- * @Author zepei.tao@hirain.com
+ * @Author Alex
  * @Created Dec 2020/3/29 19:50
  * @Description
  *              <p>
- * @Modification
- *               <p>
- *               Date Author Version Description
- *               <p>
- *               2020/3/29 zepei.tao@hirain.com 1.0 create file
  */
 @RestController
 @RequestMapping("/slf4j")

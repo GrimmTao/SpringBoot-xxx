@@ -11,16 +11,10 @@ import com.alex.demo.mybatis.javabean.User;
 import com.alex.demo.mybatis.util.CommonMapper;
 
 /**
- * @Version 1.0
- * @Author zepei.tao@hirain.com
+ * @Author Alex
  * @Created Dec 2020/3/27 16:00
  * @Description
  *              <p>
- * @Modification
- *               <p>
- *               Date Author Version Description
- *               <p>
- *               2020/3/27 zepei.tao@hirain.com 1.0 create file
  */
 public interface UserMapper extends CommonMapper<User> {
 

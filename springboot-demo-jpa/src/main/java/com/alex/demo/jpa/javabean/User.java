@@ -10,16 +10,10 @@ import javax.persistence.Table;
 import lombok.Data;
 
 /**
- * @Version 1.0
- * @Author zepei.tao@hirain.com
+ * @Author Alex
  * @Created Dec 2020/3/27 16:01
  * @Description
  *              <p>
- * @Modification
- *               <p>
- *               Date Author Version Description
- *               <p>
- *               2020/3/27 zepei.tao@hirain.com 1.0 create file
  */
 @Entity // 告诉JPA这是一个实体类（和数据表映射的类）
 @Table(name = "user") // @Table来指定和哪个数据表对应;如果省略默认表名就是user；

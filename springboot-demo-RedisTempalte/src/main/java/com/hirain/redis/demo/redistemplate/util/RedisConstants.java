@@ -4,16 +4,10 @@
 package com.hirain.redis.demo.redistemplate.util;
 
 /**
- * @Version 1.0
- * @Author zepei.tao@hirain.com
+ * @Author Alex
  * @Created Dec 2020/3/20 14:45
  * @Description
  *              <p>
- * @Modification
- *               <p>
- *               Date Author Version Description
- *               <p>
- *               2020/3/20 zepei.tao@hirain.com 1.0 create file
  */
 public class RedisConstants {
 

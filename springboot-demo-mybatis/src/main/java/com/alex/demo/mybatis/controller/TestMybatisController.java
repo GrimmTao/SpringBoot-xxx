@@ -13,16 +13,10 @@ import com.alex.demo.mybatis.dao.UserMapper;
 import com.alex.demo.mybatis.javabean.User;
 
 /**
- * @Version 1.0
- * @Author zepei.tao@hirain.com
+ * @Author Alex
  * @Created Dec 2020/3/27 16:05
  * @Description
  *              <p>
- * @Modification
- *               <p>
- *               Date Author Version Description
- *               <p>
- *               2020/3/27 zepei.tao@hirain.com 1.0 create file
  */
 @RestController
 @RequestMapping("/mybatistest")

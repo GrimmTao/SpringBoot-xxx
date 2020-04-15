@@ -13,16 +13,10 @@ import org.springframework.util.CollectionUtils;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Version 1.0
- * @Author zepei.tao@hirain.com
+ * @Author Alex
  * @Created Dec 2020/3/20 13:32
  * @Description
  *              <p>
- * @Modification
- *               <p>
- *               Date Author Version Description
- *               <p>
- *               2020/3/20 zepei.tao@hirain.com 1.0 create file
  */
 @Component
 @Slf4j
