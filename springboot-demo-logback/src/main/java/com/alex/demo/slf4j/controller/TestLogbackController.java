@@ -21,7 +21,7 @@ import com.alex.demo.slf4j.javabean.User;
 @RequestMapping("/slf4j")
 public class TestLogbackController {
 
-	private static final Logger logger = LoggerFactory.getLogger(TestLogbackController.class);
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@PostMapping("/logback")
 	public void testSlf4j(User user) {

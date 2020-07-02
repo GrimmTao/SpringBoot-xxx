@@ -21,7 +21,7 @@ import com.alex.demo.log4j2.javabean.User;
 @RequestMapping("/slf4j")
 public class TestLog4j2Controller {
 
-	private static final Logger logger = LoggerFactory.getLogger(TestLog4j2Controller.class);
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@PostMapping("/log4j2")
 	public void testSlf4j(User user) {
