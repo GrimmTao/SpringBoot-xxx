@@ -27,7 +27,7 @@ public class TestMybatisController {
 
 	@GetMapping("/getAll")
 	public List<User> getAllUser() {
-		List<User> all = userMapper.findAll();
+		List<User> all = userMapper.listUsers();
 		System.out.println(all.size());
 		return all;
 	}
@@ -37,7 +37,7 @@ public class TestMybatisController {
 		LocalDateTime now = LocalDateTime.now();
 		user.setCreateDate(now);
 		user.setUpdateDate(now);
-		userMapper.userInsert(user);
+		userMapper.insertUser(user);
 	}
 
 	// TODO 这个接口有问题，待测

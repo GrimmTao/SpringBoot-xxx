@@ -19,11 +19,11 @@ import com.alex.demo.mybatis.util.CommonMapper;
 public interface UserMapper extends CommonMapper<User> {
 
 	@Select("select * from user")
-	List<User> findAll();
+	List<User> listUsers();
 
 	@Options(useGeneratedKeys = true, keyProperty = "id") // 设置之间id自增
 	@Insert("insert into user(name,age,create_date,update_date) values(#{name},#{age},#{createDate},#{updateDate})")
-	int userInsert(User user);
+	int insertUser(User user);
 
 	@Delete("delete from user where id=#{id}")
 	int deleteById(Integer id);
