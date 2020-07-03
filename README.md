@@ -6,3 +6,4 @@ SpringBoot集成其他框架的Demo
 ## springboot-demo-logback
 ## springboot-demo-mybatis
 ## springboot-demo-redis
+## [springboot-demo-aop](https://github.com/GrimmTao/SpringBoot-xxx/tree/master/springboot-demo-aop)
