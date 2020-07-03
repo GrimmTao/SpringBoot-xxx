@@ -2,11 +2,12 @@
 
 ### 依赖引入
 
-`<dependency>
-     <groupId>org.springframework.boot</groupId>
-     <artifactId>spring-boot-starter-aop</artifactId>
+````xml
+<dependency>
+     <groupId>org.springframework.boot</groupId>  
+     <artifactId>spring-boot-starter-aop</artifactId>  
  </dependency>
- `
+ ````
 
 注意：在完成了引入AOP依赖包后，不需要去做其他配置。AOP的默认配置属性中，spring.aop.auto属性默认是开启的，也就是说只要引入了AOP依赖后，默认已经增加了@EnableAspectJAutoProxy，不需要在程序主类中增加@EnableAspectJAutoProxy来启用。
 
