@@ -1,4 +1,4 @@
-package com.hirain.redis.demo.redistemplate.controller;
+package com.alex.demo.redistemplate.controller;
 
 import org.springframework.ui.ModelMap;
 

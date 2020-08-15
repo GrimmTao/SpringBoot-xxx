@@ -1,18 +1,18 @@
-package com.hirain.redis.demo.redistemplate.controller;
+package com.alex.demo.redistemplate.controller;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.alex.demo.redistemplate.javabean.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import com.alibaba.fastjson.JSONObject;
-import com.hirain.redis.demo.redistemplate.javabean.User;
-import com.hirain.redis.demo.redistemplate.service.UserService;
-import com.hirain.redis.demo.redistemplate.util.RedisConstants;
-import com.hirain.redis.demo.redistemplate.util.RedisUtil;
-import com.hirain.redis.demo.redistemplate.util.StateParameter;
+import com.alex.demo.redistemplate.service.UserService;
+import com.alex.demo.redistemplate.util.RedisConstants;
+import com.alex.demo.redistemplate.util.RedisUtil;
+import com.alex.demo.redistemplate.util.StateParameter;
 
 import lombok.extern.slf4j.Slf4j;
 

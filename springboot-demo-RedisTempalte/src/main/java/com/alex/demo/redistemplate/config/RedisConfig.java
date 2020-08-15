@@ -1,4 +1,4 @@
-package com.hirain.redis.demo.redistemplate.config;
+package com.alex.demo.redistemplate.config;
 
 import java.time.Duration;
 

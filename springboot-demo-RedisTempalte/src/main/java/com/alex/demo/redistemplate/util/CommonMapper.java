@@ -1,4 +1,4 @@
-package com.hirain.redis.demo.redistemplate.util;
+package com.alex.demo.redistemplate.util;
 
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;

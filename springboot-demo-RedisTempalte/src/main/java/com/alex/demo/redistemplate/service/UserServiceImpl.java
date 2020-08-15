@@ -1,18 +1,18 @@
 /*******************************************************************************
- * Copyright (c) 2020, 2020 Hirain Technologies Corporation.
+ * Copyright (c) 2020, 2020 Alex.
  ******************************************************************************/
-package com.hirain.redis.demo.redistemplate.service;
+package com.alex.demo.redistemplate.service;
 
 import java.util.List;
 
+import com.alex.demo.redistemplate.javabean.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.hirain.redis.demo.redistemplate.dao.UserMapper;
-import com.hirain.redis.demo.redistemplate.javabean.User;
+import com.alex.demo.redistemplate.dao.UserMapper;
 
 import lombok.extern.slf4j.Slf4j;
 

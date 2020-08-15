@@ -1,7 +1,7 @@
 /*******************************************************************************
- * Copyright (c) 2020, 2020 Hirain Technologies Corporation.
+ * Copyright (c) 2020, 2020 Alex.
  ******************************************************************************/
-package com.hirain.redis.demo.redistemplate.util;
+package com.alex.demo.redistemplate.util;
 
 /**
  * @Author Alex

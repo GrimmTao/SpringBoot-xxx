@@ -1,4 +1,4 @@
-package com.hirain.redis.demo.redistemplate.javabean;
+package com.alex.demo.redistemplate.javabean;
 
 import java.time.LocalDateTime;
 

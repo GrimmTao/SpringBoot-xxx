@@ -1,14 +1,13 @@
 /*******************************************************************************
- * Copyright (c) 2020, 2020 Hirain Technologies Corporation.
+ * Copyright (c) 2020, 2020 Alex.
  ******************************************************************************/
-package com.hirain.redis.demo.redistemplate.dao;
+package com.alex.demo.redistemplate.dao;
 
 import java.util.List;
 
+import com.alex.demo.redistemplate.javabean.User;
+import com.alex.demo.redistemplate.util.CommonMapper;
 import org.apache.ibatis.annotations.*;
-
-import com.hirain.redis.demo.redistemplate.javabean.User;
-import com.hirain.redis.demo.redistemplate.util.CommonMapper;
 
 /**
  * @Author Alex
