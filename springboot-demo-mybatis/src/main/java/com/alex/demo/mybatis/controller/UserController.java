@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020, 2020 Alex.
+ * Copyright (c) 2020, 2020 Hirain Technologies Corporation.
  ******************************************************************************/
 package com.alex.demo.mybatis.controller;
 
@@ -19,20 +19,20 @@ import com.alex.demo.mybatis.javabean.User;
  *              <p>
  */
 @RestController
-@RequestMapping("/mybatistest")
-public class TestMybatisController {
+@RequestMapping("/user")
+public class UserController {
 
 	@Autowired
 	private UserMapper userMapper;
 
-	@GetMapping("/getAll")
+	@GetMapping("/getAllUser")
 	public List<User> getAllUser() {
 		List<User> all = userMapper.listUsers();
 		System.out.println(all.size());
 		return all;
 	}
 
-	@PostMapping("/insert")
+	@PostMapping("/insertUser")
 	public void userInsert(@RequestBody User user) {
 		LocalDateTime now = LocalDateTime.now();
 		user.setCreateDate(now);
