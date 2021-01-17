@@ -23,21 +23,12 @@ public enum Role implements BaseEnum {
 	private Integer code;
 
 	@Getter
-	@JsonValue
+	@JsonValue // 序列化时 枚举对应生成的值
 	private String desc;
 
 	Role(Integer code, String desc) {
 		this.code = code;
 		this.desc = desc;
-	}
-
-	/**
-	 * @see java.lang.Enum#toString()
-	 */
-	@Override
-	public String toString() {
-		System.out.println("-- " + super.toString());
-		return "code:" + getCode() + " ,desc:" + getDesc();
 	}
 
 }
