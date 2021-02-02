@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.alex.demo.springboot.starter.config.ThreadPoolAutoConfiguration,\
+com.alex.demo.springboot.starter.config.CustomConfiguration
