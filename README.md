@@ -7,3 +7,5 @@ SpringBoot集成其他框架的Demo
 ## [springboot-demo-mybatis](https://github.com/GrimmTao/SpringBoot-xxx/tree/master/springboot-demo-mybatis)
 ## [springboot-demo-redis](https://github.com/GrimmTao/SpringBoot-xxx/tree/master/springboot-demo-RedisTempalte)
 ## [springboot-demo-aop](https://github.com/GrimmTao/SpringBoot-xxx/tree/master/springboot-demo-aop)
+## [springboot-demo-starter](https://github.com/GrimmTao/SpringBoot-xxx/tree/master/springboot-demo-starter)
+
