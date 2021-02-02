@@ -9,7 +9,10 @@ import org.apache.ibatis.type.JdbcType;
 
 import com.alex.demo.mybatis.handler.RoleHandler;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import tk.mybatis.mapper.annotation.ColumnType;
 
 /**
@@ -19,6 +22,9 @@ import tk.mybatis.mapper.annotation.ColumnType;
  *              <p>
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class Person extends BaseEntity implements Serializable {
 
 	/**

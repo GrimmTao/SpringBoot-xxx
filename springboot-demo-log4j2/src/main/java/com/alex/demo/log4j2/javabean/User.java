@@ -3,7 +3,10 @@
  ******************************************************************************/
 package com.alex.demo.log4j2.javabean;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * @Author Alex
@@ -12,6 +15,9 @@ import lombok.Data;
  *              <p>
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class User extends BaseEntity {
 
 	private String name;
