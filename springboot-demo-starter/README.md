@@ -4,17 +4,24 @@
 
 SpringBoot实现自动装配的原理
 核心注解@SpringBootApplication,可以分为三部分
+
 ![image.png](https://upload-images.jianshu.io/upload_images/25046096-a11a6e8eb8cdba5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 1. **@EnableAutoConfiguration**：启用 SpringBoot 的自动配置机制，是实现自动装配的核心注解;
+
 ![image.png](https://upload-images.jianshu.io/upload_images/25046096-bb52b82f47e1ccba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 自动装配的核心功能实际通过AutoConfigurationImportSelector类实现，该类实现了 ImportSelector接口，也就实现了这个接口中的 selectImports方法，该方法主要用于获取所有符合条件的类的全限定类名，这些类需要被加载到 IoC 容器中。
+
 ![image.png](https://upload-images.jianshu.io/upload_images/25046096-73d9d227606367d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 getAutoConfigurationEntry()方法，主要负责加载自动配置。该方法调用链接如下：
+
 ![image.png](https://upload-images.jianshu.io/upload_images/25046096-6b1fb2a9d3b1cd1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 剖析getAutoConfigurationEntry()方法
+
 ![image.png](https://upload-images.jianshu.io/upload_images/25046096-a30e7f32cc621190.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 第1步：判断自动装配开关是否打开。默认spring.boot.enableautoconfiguration=true，可在 application.properties 或 application.yml 中设置；
@@ -28,6 +35,7 @@ getAutoConfigurationEntry()方法，主要负责加载自动配置。该方法�
 2. **@SpringBootConfiguration-@Configuration**：允许在上下文中注册额外的 bean 或导入其他配置类;
 
 3. **@ComponentScan**：扫描被@Component (@Service,@Controller)注解的 bean，注解默认会扫描启动类所在的包下所有的类 ，可以自定义不扫描某些 bean。如下图所示，容器中将排除TypeExcludeFilter 和 AutoConfigurationExcludeFilter。
+
 ![image.png](https://upload-images.jianshu.io/upload_images/25046096-a11a6e8eb8cdba5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 那么如何实现一个自定义的starter呢？步骤如下：
