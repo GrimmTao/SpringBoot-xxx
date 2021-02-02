@@ -7,7 +7,7 @@ SpringBoot实现自动装配的原理
 ![image.png](https://upload-images.jianshu.io/upload_images/25046096-a11a6e8eb8cdba5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-1. @EnableAutoConfiguration：启用 SpringBoot 的自动配置机制，是实现自动装配的核心注解;
+1. **@EnableAutoConfiguration**：启用 SpringBoot 的自动配置机制，是实现自动装配的核心注解;
 ![image.png](https://upload-images.jianshu.io/upload_images/25046096-bb52b82f47e1ccba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 自动装配的核心功能实际通过AutoConfigurationImportSelector类实现，该类实现了 ImportSelector接口，也就实现了这个接口中的 selectImports方法，该方法主要用于获取所有符合条件的类的全限定类名，这些类需要被加载到 IoC 容器中。
 ![image.png](https://upload-images.jianshu.io/upload_images/25046096-73d9d227606367d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -25,9 +25,9 @@ getAutoConfigurationEntry()方法，主要负责加载自动配置。该方法�
 
 第4部：spring.factories中这么多配置，每次启动都要全部加载么？答案是否定的，因为，这一步有经历了一遍筛选，@ConditionalOnXXX 中的所有条件都满足，该类才会生效。
 
-2. @SpringBootConfiguration-@Configuration：允许在上下文中注册额外的 bean 或导入其他配置类;
+2. **@SpringBootConfiguration-@Configuration**：允许在上下文中注册额外的 bean 或导入其他配置类;
 
-3. @ComponentScan：扫描被@Component (@Service,@Controller)注解的 bean，注解默认会扫描启动类所在的包下所有的类 ，可以自定义不扫描某些 bean。如下图所示，容器中将排除TypeExcludeFilter 和 AutoConfigurationExcludeFilter。
+3. **@ComponentScan**：扫描被@Component (@Service,@Controller)注解的 bean，注解默认会扫描启动类所在的包下所有的类 ，可以自定义不扫描某些 bean。如下图所示，容器中将排除TypeExcludeFilter 和 AutoConfigurationExcludeFilter。
 ![image.png](https://upload-images.jianshu.io/upload_images/25046096-a11a6e8eb8cdba5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 那么如何实现一个自定义的starter呢？步骤如下：
