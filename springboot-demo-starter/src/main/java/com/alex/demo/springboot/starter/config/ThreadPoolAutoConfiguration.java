@@ -35,36 +35,71 @@ public class ThreadPoolAutoConfiguration {
 	 */
 	private LinkedBlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<>(5);// 或者用ArrayBlockingQueue
 
-	private VideoReceiveThreadFactory videoReceiveFactory = new VideoReceiveThreadFactory();
+	@Bean
+	public VideoReceiveThreadFactory videoReceiveFactory() {
+		return new VideoReceiveThreadFactory();
+	}
 
-	private MulticastReceiveThreadFactory multicastReceiveFactory = new MulticastReceiveThreadFactory();
+	@Bean
+	public MulticastReceiveThreadFactory multicastReceiveFactory() {
+		return new MulticastReceiveThreadFactory();
+	}
 
-	private MessageStorageThreadFactory messageStorageFactory = new MessageStorageThreadFactory();
+	@Bean
+	public MessageStorageThreadFactory messageStorageFactory() {
+		return new MessageStorageThreadFactory();
+	}
 
 	/**
 	 * 拒绝策略
 	 */
-	private ThreadIgnorePolicy handler = new ThreadIgnorePolicy();
+	@Bean
+	public ThreadIgnorePolicy rejectHandler() {
+		return new ThreadIgnorePolicy();
+	}
 
-	// 构造一个视频接收的线程池
+	/**
+	 * 构造一个视频接收的线程池
+	 * 
+	 * @param videoReceiveFactory
+	 *            参数名尽量和上面的videoReceiveFactory()方法同名，这样才能映射到
+	 *            因为本例中只有一个自动加载的VideoReceiveThreadFactory对象，所以参数名和方法名不相同也没关系
+	 *            但如果说有多个自动加载的VideoReceiveThreadFactory对象，则必须通过名称来区别
+	 * @param rejectHandler
+	 *            参数名尽量和上面的rejectHandler()方法同名
+	 */
 	@Bean(name = "videoThreadPool")
 	@ConditionalOnClass(ThreadPoolExecutor.class) // 需要项目中存在ThreadPoolExecutor类，因为这是JDK自带的，所以一定存在
-	public ThreadPoolExecutor videoReceiveThreadPool() {
-		return new ThreadPoolExecutor(5, 7, keepAliveTime, TimeUnit.SECONDS, workQueue, videoReceiveFactory, handler);
+	public ThreadPoolExecutor videoReceiveThreadPool(VideoReceiveThreadFactory videoReceiveFactory, ThreadIgnorePolicy rejectHandler) {
+		return new ThreadPoolExecutor(5, 7, keepAliveTime, TimeUnit.SECONDS, workQueue, videoReceiveFactory, rejectHandler);
 	}
 
-	// 构造一个组播接收的线程池
+	/**
+	 * 构造一个组播接收的线程池
+	 * 
+	 * @param multicastReceiveFactory
+	 *            参数名尽量和上面的multicastReceiveFactory()同名
+	 * @param rejectHandler
+	 *            参数名尽量和上面的rejectHandler()方法同名
+	 */
 	@Bean
 	@ConditionalOnClass(ThreadPoolExecutor.class)
-	public ThreadPoolExecutor multicastReceiveThreadPool() {
-		return new ThreadPoolExecutor(38, 40, keepAliveTime, TimeUnit.SECONDS, workQueue, multicastReceiveFactory, handler);
+	public ThreadPoolExecutor multicastReceiveThreadPool(MulticastReceiveThreadFactory multicastReceiveFactory, ThreadIgnorePolicy rejectHandler) {
+		return new ThreadPoolExecutor(38, 40, keepAliveTime, TimeUnit.SECONDS, workQueue, multicastReceiveFactory, rejectHandler);
 	}
 
-	// 构造一个报文存储的线程池
+	/**
+	 * 构造一个报文存储的线程池
+	 * 
+	 * @param messageStorageFactory
+	 *            参数名尽量和上面的messageStorageFactory()方法同名
+	 * @param rejectHandler
+	 *            参数名尽量和上面的rejectHandler()方法同名
+	 */
 	@Bean
 	@ConditionalOnClass(ThreadPoolExecutor.class)
-	public ThreadPoolExecutor messageStorageThreadPool() {
-		return new ThreadPoolExecutor(10, 12, keepAliveTime, TimeUnit.SECONDS, workQueue, messageStorageFactory, handler);
+	public ThreadPoolExecutor messageStorageThreadPool(MessageStorageThreadFactory messageStorageFactory, ThreadIgnorePolicy rejectHandler) {
+		return new ThreadPoolExecutor(10, 12, keepAliveTime, TimeUnit.SECONDS, workQueue, messageStorageFactory, rejectHandler);
 	}
 
 }
