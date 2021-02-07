@@ -10,20 +10,21 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.alex.demo.aop.annotation.LogAnnotation;
+import com.alex.demo.aop.annotation.AopAnnotation;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Aspect
+@Aspect // 表示是一个切面类
 @Component
 @Slf4j
-public class LogAspect {
+public class CustomAspect {
 
 	/**
 	 * execution: 匹配连接点
@@ -38,7 +39,7 @@ public class LogAspect {
 	 * @within: 匹配使用指定注解的类
 	 * @annotation:指定方法所应用的注解
 	 */
-	@Pointcut("@annotation(com.alex.demo.aop.annotation.LogAnnotation)")
+	@Pointcut("@annotation(com.alex.demo.aop.annotation.AopAnnotation)")
 	public void executeAnnotationMethod() {
 	}
 
@@ -60,7 +61,7 @@ public class LogAspect {
 
 	/**
 	 * Pointcut的表达式中可使用使用 &&、||、！ 运算符
-	 * 如下，cutAll()的作用等同于 executeMethod 和 controllerTwoLog 之和
+	 * 如下，cutAll()的作用等同于 executeAnnotationMethod 和 executeControllerMethod 之和
 	 */
 	@Pointcut("executeAnnotationMethod() && executeControllerMethod()")
 	public void cutAll() {
@@ -131,10 +132,11 @@ public class LogAspect {
 	}
 
 	/**
-	 * 异常增强：目标方法发生异常的时候执行，第二个参数表示补货异常的类型
+	 * 异常增强：目标方法发生异常的时候执行，第二个参数表示捕获异常的类型
 	 *
 	 * @param jp
 	 * @param e
+	 *            捕获异常的类型
 	 */
 	@AfterThrowing(value = "executeExceptionCatch()", throwing = "e")
 	public void afterThorwingMethod(JoinPoint jp, Exception e) {
@@ -155,13 +157,14 @@ public class LogAspect {
 			// 执行目标方法
 			System.out.println("proceed之前");
 			result = jp.proceed();
+			System.out.println("result:" + result);
 			System.out.println("proceed之后");
 			MethodSignature signature = (MethodSignature) jp.getSignature();
 			Method method = signature.getMethod();
-			LogAnnotation logAnnotation = method.getAnnotation(LogAnnotation.class);
-			if (logAnnotation != null) {
+			AopAnnotation aopAnnotation = method.getAnnotation(AopAnnotation.class);
+			if (aopAnnotation != null) {
 				// 注解上的描述
-				System.out.println("Log描述：" + logAnnotation.logDesc());
+				System.out.println("Aop描述：" + aopAnnotation.aopDesc());
 			}
 		} catch (Throwable e) {
 			result = "error";
@@ -170,6 +173,7 @@ public class LogAspect {
 	}
 
 	@Around(value = "paramAspect(name,age)")
+	@Order
 	public Object aroundMethod(ProceedingJoinPoint jp, String name, int age) {
 		Object result;
 		try {

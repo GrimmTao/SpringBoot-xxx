@@ -11,10 +11,10 @@ import java.lang.annotation.*;
 @Documented
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface LogAnnotation {
+public @interface AopAnnotation {
 
-	String desc = "输入日志信息";
+	String desc = "切面注释";
 
-	String logDesc() default desc;
+	String aopDesc() default desc;
 
 }
